@@ -12,9 +12,10 @@ Each wallet member may: - propose a transaction - approve a transaction proposed
 To deploy this smart contract in a local development network:
 
 ```shell
-$ npx hardhat node; // boots up a local development ethereum network
+# boots up a local development ethereum network
+$ npx hardhat node
 
-# in another terminal
+# run this in another terminal
 $ npx hardhat run --network localhost scripts/deploy.js
 
 # to interact with the deployed contract (check hardhat docs for more details)
@@ -28,7 +29,12 @@ Tests are written in javascript and located in `test/SharedWallet_test.js`
 To run unit tests:
 
 ```shell
-$ npx hardhat test;
+$ npx hardhat test
+```
+
+To run unit tests with coverage:
+```shell
+$ npx hardhat coverage
 ```
 
 ## Ropsten Testnet Addresses
