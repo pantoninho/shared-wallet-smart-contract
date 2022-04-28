@@ -3,7 +3,6 @@ const hre = require('hardhat');
 
 async function main() {
   const [owner, acc2, acc3] = await ethers.getSigners();
-  console.log({owner, acc2, acc3});
 
   const SharedWallet = await hre.ethers.getContractFactory('SharedWallet');
   const wallet = await SharedWallet.deploy([acc2.address, acc3.address], 1);
