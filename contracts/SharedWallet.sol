@@ -159,30 +159,20 @@ contract SharedWallet {
 
         // use index to remove the approver
         // remove item from array by copying last item ref to desired index and pop last item
-        transaction.approvers[approvalIndex] = transaction.approvers[
-            transaction.approvers.length - 1
-        ];
+        transaction.approvers[approvalIndex] = transaction.approvers[transaction.approvers.length - 1];
         transaction.approvers.pop();
     }
 
     /// @notice gets the number of approvals of a transaction
     /// @param transactionIndex index of the transaction
-    function getApprovalCount(uint256 transactionIndex)
-        public
-        view
-        returns (uint256 approvalCount)
-    {
+    function getApprovalCount(uint256 transactionIndex) public view returns (uint256 approvalCount) {
         return transactions[transactionIndex].approvers.length;
     }
 
     /// @notice finds out if a transaction has been approved by a member
     /// @param transaction the transaction
     /// @param member the member
-    function hasApproved(Transaction memory transaction, address member)
-        private
-        pure
-        returns (bool)
-    {
+    function hasApproved(Transaction memory transaction, address member) private pure returns (bool) {
         for (uint256 i = 0; i < transaction.approvers.length; i++) {
             address approval = transaction.approvers[i];
             if (approval == member) {
