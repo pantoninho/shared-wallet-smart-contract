@@ -1,30 +1,24 @@
 // Runtime Environment's members available in the global scope.
-const hre = require('hardhat')
-require('hardhat-ethernal');
-
+const hre = require('hardhat');
 
 async function main() {
-  const [owner, acc2, acc3] = await ethers.getSigners()
+  const [owner, acc2, acc3] = await ethers.getSigners();
+  console.log({owner, acc2, acc3});
 
-  // We get the contract to deploy
-  const SharedWallet = await hre.ethers.getContractFactory('SharedWallet')
-  const wallet = await SharedWallet.deploy([acc2.address, acc3.address], 1)
+  const SharedWallet = await hre.ethers.getContractFactory('SharedWallet');
+  const wallet = await SharedWallet.deploy([acc2.address, acc3.address], 1);
 
-  await wallet.deployed()
+  await wallet.deployed();
 
-  console.log('Wallet deployed to:', wallet.address)
-
-  await hre.ethernal.push({
-    name: 'SharedWallet',
-    address: wallet.address,
-  })
+  console.log('Wallet deployed to:', wallet.address);
+  console.log('Wallet owner address:', owner.address);
+  console.log('Wallet member 1 address:', acc2.address);
+  console.log('Wallet member 2 address:', acc3.address);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error(error)
-    process.exit(1)
-  })
+    console.error(error);
+    process.exit(1);
+  });
