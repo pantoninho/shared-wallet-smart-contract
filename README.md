@@ -3,9 +3,15 @@
 This project implements a basic shared wallet through a smart contract.
 A shared wallet is a wallet where transactions need to be approved by multiple accounts before being executed.
 
-The wallet is deployed with: - a set of members - the required number of approvals to be able to execute a transaction
+The wallet is deployed with:
+- a set of members
+- the required number of approvals to be able to execute a transaction
 
-Each wallet member may: - propose a transaction - approve a transaction proposed by other members - revoke own approvals (if transaction has not been yet executed) - execute own transaction proposals if required number of approvals has been reached
+Each wallet member may:
+- propose a transaction
+- approve a transaction proposed by other members
+- revoke own approvals (if transaction has not been yet executed)
+- execute own transaction proposals if required number of approvals has been reached
 
 ## Setup
 
