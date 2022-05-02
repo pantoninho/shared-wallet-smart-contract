@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-import "hardhat/console.sol";
-
 /// @title Simple Shared Wallet
 /// @notice A wallet to be shared by multiple members. members may propose transactions that can only be executed after a required amount of approvals have been reached.
 contract SharedWallet {
